@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #7c7c7c;
+  --bg-cell: #f2f2f2;
+  --filled-bg: #d9d9d9;
+  --text-color: #222222;
+  --alt-text-color: #ffffff;
+
+  --highlighted: #fff3e5;
+  --selected: #ffdbb3;
+  --error: #ff8c8c;
+
+  --cell-size: 8vmin;
+  --border-radius: 0.5vmin;
+  --gap: 0.5vmin;
+
+  --font-size: 3vmin;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
