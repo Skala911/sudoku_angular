@@ -1,0 +1,35 @@
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg);
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+
+.group-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.toolbar-buttons {
+  display: grid;
+  width: calc(100vw - 26%);
+  grid-template-columns: repeat(5, auto);
+  gap: var(--gap);
+  margin-top: 2vmin;
+}
+
+.toolbar-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--cell-size);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-cell);
+  font-size: var(--font-size);
+  color: var(--text-color);
+  cursor: pointer;
+}

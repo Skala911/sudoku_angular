@@ -1,0 +1,11 @@
+<div class="cell-group">
+  @for (row of group.rows; track $index) {
+    <div class="cell-row">
+    @for (cell of row; track $index) {
+      <div class="col">
+        <app-cell [cell]="cell"></app-cell>
+      </div>
+    }
+    </div>
+  }
+</div>

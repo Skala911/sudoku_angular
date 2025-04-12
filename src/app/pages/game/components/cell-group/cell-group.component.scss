@@ -1,0 +1,10 @@
+.cell-group {
+  display: flex;
+  flex-direction: column;
+  margin-right: calc(var(--gap));
+  margin-bottom: calc(var(--gap));
+}
+
+.cell-row {
+  display: flex;
+}
