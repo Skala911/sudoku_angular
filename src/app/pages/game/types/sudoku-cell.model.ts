@@ -8,4 +8,10 @@ export class SudokuCellModel {
   row?: number;
   col?: number;
   filled: boolean = false;
+  editable: boolean = false;
+  groupHash: string;
+
+  constructor(groupHash: string) {
+    this.groupHash = groupHash;
+  }
 }

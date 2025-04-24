@@ -13,16 +13,12 @@ import { GamePageModel } from './types/game-page.model';
   styleUrl: './game.component.scss'
 })
 export class GameComponent implements OnInit {
-  m: GamePageModel = new GamePageModel();
-
-  private readonly gameComponentService = inject(GameComponentService)
+  readonly m: GamePageModel = new GamePageModel();
+  readonly gameComponentService = inject(GameComponentService)
 
   ngOnInit(): void {
     this.m.init();
     this.m.generateSolvedGrid();
-    this.m.maskCellsByPercentage(60);
-  }
-  insertNumber(num: number): void {
-    this.gameComponentService.insertNumber(num, );
+    this.m.maskCellsByPercentage(70);
   }
 }

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { SudokuCellModel } from '../../types/sudoku-cell.model';
 import {GameComponentService} from '../../services/game-component.service';
 
@@ -15,9 +15,5 @@ import {GameComponentService} from '../../services/game-component.service';
 export class CellComponent {
   @Input({ required: true }) cell!: SudokuCellModel;
   @Input({ required: true }) allCells!: SudokuCellModel[];
-  constructor(private gameService : GameComponentService) {
-  }
-  select():void {
-    this.gameService.selectCell(this.cell, this.allCells)
-  }
+  readonly gameService = inject(GameComponentService);
 }

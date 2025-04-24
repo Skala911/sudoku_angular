@@ -1,12 +1,12 @@
 <div class="cell"
-     (click)="select()"
+     (click)="gameService.selectCell(cell, allCells)"
      [ngClass]="{
-      'error': cell.error,
       'zoom': cell.zoom,
       'shake': cell.shake,
       'filled': cell.filled,
       'selected': cell.selected,
-      'highlighted': cell.highlighted&& !cell.error
+      'highlighted': cell.highlighted && !cell.error,
+      'error': cell.error,
      }">
   {{ cell.value }}
 </div>

@@ -8,11 +8,9 @@ export class GamePageModel {
   allCells: SudokuCellModel[] = [];
 
   init(): void {
-    this.cellGroups = Array.from(
-      { length: GameConstants.BOX_SIZE },
-      () => Array.from(
-        { length: GameConstants.BOX_SIZE },
-        () => new SudokuCellGroup()
+    this.cellGroups = Array.from({ length: GameConstants.BOX_SIZE },
+      (_, rowIndex) => Array.from({ length: GameConstants.BOX_SIZE },
+        (_, colIndex) => new SudokuCellGroup(rowIndex.toString() + colIndex.toString())
       )
     );
   }
@@ -35,8 +33,8 @@ export class GamePageModel {
 
             const cell = group.rows[r][c];
             cell.value = value;
-            cell.row = globalRow;
-            cell.col = globalCol;
+            cell.row = globalRow + 1;
+            cell.col = globalCol + 1;
             cell.filled = true;
             this.allCells.push(cell);
           }
@@ -71,6 +69,7 @@ export class GamePageModel {
     for (let i = 0; i < cellsToClear; i++) {
       shuffled[i].value = undefined;
       shuffled[i].filled = false;
+      shuffled[i].editable = true;
     }
   }
 

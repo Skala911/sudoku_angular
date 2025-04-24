@@ -9,9 +9,8 @@
 
   <div class="toolbar-buttons">
     @for (button of m.toolbar; track $index) {
-      <div class="toolbar-button"
-           (click)="insertNumber(button)">
-        {{ button }}
+      <div class="toolbar-button" (click)="gameComponentService.insertNumber(button, m.allCells)">
+        {{ button === 0 ? 'X' : button }}
       </div>
     }
   </div>
