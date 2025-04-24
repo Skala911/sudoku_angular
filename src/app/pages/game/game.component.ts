@@ -9,6 +9,7 @@ import { GamePageModel } from './types/game-page.model';
     CellGroupComponent
   ],
   templateUrl: './game.component.html',
+  standalone: true,
   styleUrl: './game.component.scss'
 })
 export class GameComponent implements OnInit {
@@ -20,6 +21,8 @@ export class GameComponent implements OnInit {
     this.m.init();
     this.m.generateSolvedGrid();
     this.m.maskCellsByPercentage(60);
-    console.log(this)
+  }
+  insertNumber(num: number): void {
+    this.gameComponentService.insertNumber(num, );
   }
 }

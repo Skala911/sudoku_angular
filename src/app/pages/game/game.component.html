@@ -2,14 +2,15 @@
   @for (row of m.cellGroups; track $index) {
     <div class="group-row">
       @for (group of row; track $index) {
-        <app-cell-group [group]="group"></app-cell-group>
+        <app-cell-group [group]="group" [model]="m"></app-cell-group>
       }
     </div>
   }
 
   <div class="toolbar-buttons">
     @for (button of m.toolbar; track $index) {
-      <div class="toolbar-button">
+      <div class="toolbar-button"
+           (click)="insertNumber(button)">
         {{ button }}
       </div>
     }

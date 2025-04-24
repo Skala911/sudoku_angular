@@ -3,7 +3,7 @@
     <div class="cell-row">
     @for (cell of row; track $index) {
       <div class="col">
-        <app-cell [cell]="cell"></app-cell>
+        <app-cell [cell]="cell" [allCells]="model.allCells" ></app-cell>
       </div>
     }
     </div>

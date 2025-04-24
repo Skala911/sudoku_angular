@@ -1,9 +1,12 @@
 <div class="cell"
+     (click)="select()"
      [ngClass]="{
       'error': cell.error,
       'zoom': cell.zoom,
       'shake': cell.shake,
-      'filled': cell.value,
+      'filled': cell.filled,
+      'selected': cell.selected,
+      'highlighted': cell.highlighted&& !cell.error
      }">
   {{ cell.value }}
 </div>

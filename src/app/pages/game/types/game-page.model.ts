@@ -5,6 +5,7 @@ import { SudokuCellModel } from './sudoku-cell.model';
 export class GamePageModel {
   cellGroups: Array<Array<SudokuCellGroup>> = [];
   toolbar: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  allCells: SudokuCellModel[] = [];
 
   init(): void {
     this.cellGroups = Array.from(
@@ -20,7 +21,7 @@ export class GamePageModel {
     const grid: number[][] = this.createEmptyGrid();
     this.fillGrid(grid);
 
-    this.init(); // Make sure cellGroups are initialized
+    this.init();
 
     for (let boxRow = 0; boxRow < 3; boxRow++) {
       for (let boxCol = 0; boxCol < 3; boxCol++) {
@@ -32,7 +33,12 @@ export class GamePageModel {
             const globalCol = boxCol * 3 + c;
             const value = grid[globalRow][globalCol];
 
-            group.rows[r][c].value = value;
+            const cell = group.rows[r][c];
+            cell.value = value;
+            cell.row = globalRow;
+            cell.col = globalCol;
+            cell.filled = true;
+            this.allCells.push(cell);
           }
         }
       }
@@ -54,7 +60,8 @@ export class GamePageModel {
         const group = this.cellGroups[boxRow][boxCol];
         for (let r = 0; r < 3; r++) {
           for (let c = 0; c < 3; c++) {
-            allCells.push(group.rows[r][c]);
+            allCells.push(group.rows[r][c]
+            );
           }
         }
       }
@@ -63,6 +70,7 @@ export class GamePageModel {
     const shuffled = this.shuffle(allCells);
     for (let i = 0; i < cellsToClear; i++) {
       shuffled[i].value = undefined;
+      shuffled[i].filled = false;
     }
   }
 
@@ -117,4 +125,5 @@ export class GamePageModel {
 
     return true;
   }
+
 }
